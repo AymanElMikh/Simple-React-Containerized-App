@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker build -t ayman/docker-react-test -f Dockerfile.dev .
+
+script:
+  - docker run ayman/docker-react-test npm run test -- --coverage
